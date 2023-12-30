@@ -1,0 +1,215 @@
+body {
+    position: relative;
+    font-family: PT Sans;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+span {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.calculator {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 390px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 15px;
+    padding-bottom: 24px;
+    border: 3px solid black;
+    /* border-radius: 12px; */
+    background-color: black;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#display {
+    -moz-appearance: none;
+    border: 1px solid black;
+    padding-left: 0;
+    margin-top: 40px;
+    background-color: black;
+    max-width: 310px;
+    height: 64px;
+    margin-left: auto;
+    font-weight: 400;
+    margin-right: auto;
+    margin-bottom: 8px;
+    font-size: 64px;
+    color: white;
+}
+
+#display::placeholder {
+    color: white;
+}
+
+.buttons button {
+    text-align: center;
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    font-size: 32px;
+    margin: 4px;
+    cursor: pointer;
+    border: none;
+    font-weight: 500;
+}
+
+.buttons button span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* .buttons button:hover {
+    background-color: white;
+    color: black;
+} */
+
+.buttons .left {
+    background-color: #ffa00a;
+    color: white;
+    transition: background-color 0.2s ease;
+}
+
+.buttons .number {
+    color: white;
+    background-color: #343434;
+    transition: background-color 0.2s ease;
+}
+
+.buttons .func {
+    background-color: #a5a5a5;
+    font-size: 24px;
+    color: black;
+    transition: background-color 0.2s ease;
+}
+
+
+/* .buttons .left:active {
+    background-color: #fcc78d;
+    color: white;
+}
+
+.buttons .number:active {
+    background-color: #737373;
+    color: white;
+}
+
+.buttons .func:active {
+    background-color: #d9d9d9;
+} */
+
+.active-orange {
+    background-color: #fcc78d;
+    color: white;
+}
+
+.buttons .sign {
+    font-size: 36px;
+}
+
+@media screen and (min-width: 390px) {}
+
+@media screen and (min-width: 768px) {}
+
+@media screen and (min-width: 1200px) {
+    body {
+        font-family: PT Sans;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .calculator {
+        width: 370px;
+        height: 620px;
+        margin: 0 auto;
+        padding: 15px;
+        border: 3px solid black;
+        border-radius: 12px;
+        background-color: black;
+    }
+    #display {
+        -moz-appearance: none;
+        border: 1px solid black;
+        padding-left: 0;
+        margin-top: 40px;
+        background-color: black;
+        width: 320px;
+        height: 64px;
+        margin-left: 12px;
+        font-weight: 400;
+        margin-right: auto;
+        margin-bottom: 8px;
+        font-size: 72px;
+        color: white;
+    }
+    #display::placeholder {
+        color: white;
+    }
+    .buttons button {
+        text-align: center;
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        font-size: 32px;
+        margin: 4px;
+        cursor: pointer;
+        border: none;
+        font-weight: 500;
+    }
+    .buttons button span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /* .buttons button:hover {
+        background-color: white;
+        color: black;
+    } */
+    .buttons .left {
+        transition: background-color 0.2s ease;
+        background-color: #ffa00a;
+        color: white;
+    }
+    .buttons .number {
+        transition: background-color 0.2s ease;
+        color: white;
+        background-color: #343434;
+    }
+    .buttons .func {
+        transition: background-color 0.2s ease;
+        background-color: #a5a5a5;
+        font-size: 24px;
+        color: black;
+    }
+    .buttons .left:hover {
+        background-color: #fcc78d;
+        color: white;
+    }
+    .buttons .number:hover {
+        background-color: #737373;
+        color: white;
+    }
+    .buttons .func:hover {
+        background-color: #d9d9d9;
+    }
+    .buttons .sign {
+        font-size: 36px;
+    }
+}

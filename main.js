@@ -5,7 +5,13 @@ const orangeBtn = document.querySelectorAll('.left')
 const numbersAndSigns = document.querySelectorAll('.append');
 const result = document.querySelector('.result');
 const cos = document.querySelector('.cos');
-console.log(orangeBtn)
+const sin = document.querySelector('.sin');
+const tan = document.querySelector('.tan');
+const cot = document.querySelector('.cot');
+const sqrt = document.querySelector('.sqrt');
+const square = document.querySelector('.square');
+const squareN = document.querySelector('.squareN');
+
 
 
 let state = {};
@@ -22,8 +28,10 @@ orangeBtn.forEach(item => {
     item.addEventListener('touchend', removeActiveStateOrange)
 })
 
-function addActiveStateOrange() {
+function addActiveStateOrange(evt) {
+    evt.preventDefault();
     evt.target.classList.add('active-orange')
+    evt.target.style.backgroundColor = 'green'
 }
 
 function removeActiveStateOrange() {
@@ -122,35 +130,64 @@ function calculateResult() {
     }
 }
 
-cos.addEventListener('click', calculateCos)
+cos.addEventListener('click', calculateCos);
+sin.addEventListener('click', calculateSin);
+tan.addEventListener('click', calculateTan);
+cot.addEventListener('click', calculateCot);
+sqrt.addEventListener('click', calculateSqrt);
+square.addEventListener('click', calculateSquareRoot);
+squareN.addEventListener('click', calculateNRoot)
+
+// async function nRoot() {
+//     return await Object.values(state)[Object.values(state).length - 1]
+// }
+
+function calculateNRoot() {
+    display.value = state[`current${countActions}`];
+    countActions += 1;
+    const id = setTimeout(() => {
+        const result = eval(Object.values(state)[Object.values(state).length - 2]) ** Object.values(state)[Object.values(state).length - 1]
+        console.log(Object.values(state)[Object.values(state).length - 1])
+
+        display.value = Number.isInteger(result) ? result : result.toFixed(2)
+    }, 5000)
+    console.log(state)
+
+}
 
 function calculateCos() {
-
-    let result = Math.cos(eval(state[`current${countActions}`]))
-    display.value = result.toFixed(2);
+    // let result = Math.cos(eval(state[`current${countActions}`]))
+    let result = Math.cos(eval(display.value))
+    display.value = Number.isInteger(result) ? result : result.toFixed(2);
+    state[`current${countActions}`] = display.value
 }
 
 function calculateSin() {
     let result = Math.sin(eval(display.value))
-    display.value = result.toFixed(2);
+    display.value = Number.isInteger(result) ? result : result.toFixed(2);
+    state[`current${countActions}`] = display.value
 }
 
 function calculateTan() {
     let result = Math.tan(eval(display.value))
-    display.value = result.toFixed(2);
+    display.value = Number.isInteger(result) ? result : result.toFixed(2);
+    state[`current${countActions}`] = display.value
 }
 
 function calculateCot() {
     let result = 1 / Math.tan(eval(display.value))
-    display.value = result.toFixed(2);
+    display.value = Number.isInteger(result) ? result : result.toFixed(2);
+    state[`current${countActions}`] = display.value
 }
 
 function calculateSqrt() {
     let result = Math.sqrt(eval(display.value))
-    display.value = result.toFixed(2);
+    display.value = Number.isInteger(result) ? result : result.toFixed(2);
+    state[`current${countActions}`] = display.value
 }
 
 function calculateSquareRoot() {
     let result = eval(display.value) ** 2;
-    display.value = result.toFixed(2);
+    display.value = Number.isInteger(result) ? result : result.toFixed(2);
+    state[`current${countActions}`] = display.value
 }

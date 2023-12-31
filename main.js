@@ -34,7 +34,7 @@ function addActiveStateOrange(evt) {
     evt.target.style.backgroundColor = '#fcc78d'
 }
 
-function removeActiveStateOrange() {
+function removeActiveStateOrange(evt) {
     evt.target.classList.remove('active-orange')
     evt.target.style.backgroundColor = '#ffa00a'
 }

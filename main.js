@@ -50,6 +50,7 @@ function removeFuncBtnTouch(evt) {
 }
 
 function addNumBtnTouch(evt) {
+    window.navigator.vibrate(200)
     evt.target.style.backgroundColor = '#737373'
 }
 

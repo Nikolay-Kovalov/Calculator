@@ -29,13 +29,14 @@ orangeBtn.forEach(item => {
 })
 
 function addActiveStateOrange(evt) {
-    evt.preventDefault();
+
     evt.target.classList.add('active-orange')
-    evt.target.style.backgroundColor = 'green'
+    evt.target.style.backgroundColor = '#fcc78d'
 }
 
 function removeActiveStateOrange() {
     evt.target.classList.remove('active-orange')
+    evt.target.style.backgroundColor = '#ffa00a'
 }
 
 

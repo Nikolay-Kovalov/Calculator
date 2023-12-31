@@ -11,6 +11,8 @@ const cot = document.querySelector('.cot');
 const sqrt = document.querySelector('.sqrt');
 const square = document.querySelector('.square');
 const squareN = document.querySelector('.squareN');
+const numBtns = document.querySelectorAll('.num');
+const funcBtns = document.querySelectorAll('.func')
 
 
 
@@ -28,14 +30,38 @@ orangeBtn.forEach(item => {
     item.addEventListener('touchend', removeActiveStateOrange)
 })
 
-function addActiveStateOrange(evt) {
 
-    evt.target.classList.add('active-orange')
+numBtns.forEach(item => {
+    item.addEventListener('touchstart', addNumBtnTouch);
+    item.addEventListener('touchend', removeNumBtnTouch);
+})
+
+funcBtns.forEach(item => {
+    item.addEventListener('touchstart', addFuncBtnTouch);
+    item.addEventListener('touchend', removeFuncBtnTouch);
+})
+
+function addFuncBtnTouch(evt) {
+    evt.target.style.backgroundColor = '#d9d9d9'
+}
+
+function removeFuncBtnTouch(evt) {
+    evt.target.style.backgroundColor = '#a5a5a5';
+}
+
+function addNumBtnTouch(evt) {
+    evt.target.style.backgroundColor = '#737373'
+}
+
+function removeNumBtnTouch(evt) {
+    evt.target.style.backgroundColor = '#343434'
+}
+
+function addActiveStateOrange(evt) {
     evt.target.style.backgroundColor = '#fcc78d'
 }
 
 function removeActiveStateOrange(evt) {
-    evt.target.classList.remove('active-orange')
     evt.target.style.backgroundColor = '#ffa00a'
 }
 

@@ -1,486 +1,149 @@
-@media screen and (orientation: landscape) {
-    * {
-        box-sizing: border-box;
-    }
-    body {
-        position: relative;
-        font-family: PT Sans;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-    /* span {
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-} */
-    .calculator {
-        opacity: 0;
-        transform: scale(0);
-        transition: all 1.5s ease;
-        position: fixed;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        max-width: 100%;
-        height: 100vh;
-        margin: 0 auto;
-        padding: 12px;
-        padding-bottom: 680px;
-        border: 3px solid black;
-        /* border-radius: 12px; */
-        background-color: black;
-    }
-    .buttons {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        max-width: 40%;
-    }
-    #display {
-        -moz-appearance: none;
-        border: 1px solid black;
-        padding-left: 0;
-        margin-top: 150px;
-        background-color: black;
-        max-width: 204px;
-        height: 44px;
-        margin-left: auto;
-        font-weight: 400;
-        margin-right: auto;
-        margin-bottom: 4px;
-        font-size: 36px;
-        color: white;
-    }
-    #display::placeholder {
-        color: white;
-    }
-    .buttons button {
-        position: relative;
-        text-align: center;
-        border-radius: 50%;
-        width: 44px;
-        height: 44px;
-        font-size: 24px;
-        margin: 4px;
-        cursor: pointer;
-        border: none;
-        font-weight: 400;
-    }
-    .buttons button span {
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-    }
-    .buttons .left {
-        background-color: #ffa00a;
-        color: white;
-        transition: background-color 0.2s ease;
-    }
-    .buttons .number {
-        color: white;
-        background-color: #343434;
-        transition: background-color 0.2s ease;
-    }
-    .buttons .func {
-        background-color: #a5a5a5;
-        font-size: 14px;
-        color: black;
-        transition: background-color 0.2s ease;
-    }
-    button {
-        opacity: 0;
-        transform: scale(0);
-        transition: all 1000ms ease;
-    }
-    .show {
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    position: relative;
+    font-family: PT Sans;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+@keyframes spin {
+    0% {
+        transform: scale(1) rotate(0deg);
         opacity: 1;
-        transform: scale(1);
     }
-    /* .buttons .left:active {
+    50% {
+        transform: scale(1.05);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+.calculator {
+    opacity: 0;
+    transform: scale(0);
+    transition: all 1.5s ease;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 390px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 12px;
+    padding-bottom: 700px;
+    border: 3px solid black;
+    /* border-radius: 12px; */
+    background-color: black;
+    animation-name: spin;
+    animation-duration: 0.9s;
+    animation-timing-function: linear;
+    animation-delay: 2500ms;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#display {
+    -moz-appearance: none;
+    border: 1px solid black;
+    padding-left: 0;
+    margin-top: 40px;
+    background-color: black;
+    max-width: 324px;
+    height: 64px;
+    margin-left: auto;
+    font-weight: 400;
+    margin-right: auto;
+    margin-bottom: 16px;
+    font-size: 68px;
+    color: white;
+}
+
+#display::placeholder {
+    color: white;
+}
+
+.buttons button {
+    position: relative;
+    text-align: center;
+    border-radius: 50%;
+    width: 74px;
+    height: 74px;
+    font-size: 32px;
+    margin: 6px;
+    cursor: pointer;
+    border: none;
+    font-weight: 400;
+}
+
+.buttons button span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+}
+
+.buttons .left {
+    background-color: #ffa00a;
+    color: white;
+    transition: background-color 0.2s ease;
+}
+
+.buttons .number {
+    color: white;
+    background-color: #343434;
+    transition: background-color 0.2s ease;
+}
+
+.buttons .func {
+    background-color: #a5a5a5;
+    font-size: 24px;
+    color: black;
+    transition: background-color 0.2s ease;
+}
+
+button {
+    opacity: 0;
+    transform: scale(0);
+    transition: all 1000ms ease;
+}
+
+.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.active-orange {
     background-color: #fcc78d;
     color: white;
 }
 
-.buttons .number:active {
-    background-color: #737373;
-    color: white;
+.buttons .sign {
+    font-size: 36px;
 }
 
-.buttons .func:active {
-    background-color: #d9d9d9;
-} */
-    .active-orange {
-        background-color: #fcc78d;
-        color: white;
-    }
-    .buttons .sign {
-        font-size: 32px;
-    }
-    @media screen and (min-width: 390px) {}
-    @media screen and (min-width: 768px) {
-        body {
-            position: relative;
-            font-family: PT Sans;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        /* span {
-        height: 100%;
-        width: 100%;
-        border-radius: 50%;
-    } */
-        .calculator {
-            opacity: 0;
-            transform: scale(0);
-            transition: all 1.5s ease;
-            position: fixed;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-width: 100vw;
-            height: 100vh;
-            margin: 0 auto;
-            padding: 8px;
-            padding-bottom: 680px;
-            border: 3px solid black;
-            /* border-radius: 12px; */
-            background-color: black;
-        }
-        .buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-        }
-        #display {
-            -moz-appearance: none;
-            border: 1px solid black;
-            padding-left: 0;
-            margin-top: 8px;
-            background-color: black;
-            max-width: 420px;
-            height: 64px;
-            margin-left: auto;
-            font-weight: 400;
-            margin-right: auto;
-            margin-bottom: 12px;
-            font-size: 64px;
-            color: white;
-        }
-        #display::placeholder {
-            color: white;
-        }
-        .buttons {
-            width: 542px;
-        }
-        .buttons button {
-            position: relative;
-            text-align: center;
-            border-radius: 50%;
-            width: 85px;
-            height: 85px;
-            font-size: 40px;
-            margin: 12px;
-            cursor: pointer;
-            border: none;
-            font-weight: 400;
-        }
-        .buttons button span {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 85px;
-            height: 85px;
-            border-radius: 50%;
-        }
-        .buttons .left {
-            background-color: #ffa00a;
-            color: white;
-            transition: background-color 0.2s ease;
-        }
-        .buttons .number {
-            color: white;
-            background-color: #343434;
-            transition: background-color 0.2s ease;
-        }
-        .buttons .func {
-            background-color: #a5a5a5;
-            font-size: 32px;
-            color: black;
-            transition: background-color 0.2s ease;
-        }
-        button {
-            opacity: 0;
-            transform: scale(0);
-            transition: all 1000ms ease;
-        }
-        .show {
-            opacity: 1;
-            transform: scale(1);
-        }
-        /* .buttons .left:active {
-        background-color: #fcc78d;
-        color: white;
-    }
-    
-    .buttons .number:active {
-        background-color: #737373;
-        color: white;
-    }
-    
-    .buttons .func:active {
-        background-color: #d9d9d9;
-    } */
-        .active-orange {
-            background-color: #fcc78d;
-            color: white;
-        }
-        .buttons .sign {
-            font-size: 48px;
-        }
-    }
-    @media screen and (min-width: 1200px) {
-        body {
-            font-family: PT Sans;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        button {
-            opacity: 0;
-            transform: scale(0);
-            transition: all 1.5s ease;
-        }
-        .buttons {
-            width: 100%;
-        }
-        .calculator {
-            opacity: 0;
-            transform: scale(0);
-            transition: all 2s ease;
-            min-width: 370px;
-            height: 620px;
-            margin: 0 auto;
-            padding: 15px;
-            border: 3px solid black;
-            border-radius: 12px;
-            background-color: black;
-        }
-        .show {
-            opacity: 1;
-            transform: scale(1);
-        }
-        #display {
-            -moz-appearance: none;
-            border: 1px solid black;
-            padding-left: 0;
-            margin-top: 40px;
-            background-color: black;
-            width: 310px;
-            height: 64px;
-            margin-left: auto;
-            font-weight: 400;
-            margin-right: auto;
-            margin-bottom: 8px;
-            font-size: 72px;
-            color: white;
-        }
-        #display::placeholder {
-            color: white;
-        }
-        .buttons button {
-            position: relative;
-            text-align: center;
-            border-radius: 50%;
-            width: 70px;
-            height: 70px;
-            font-size: 32px;
-            margin: 4px;
-            cursor: pointer;
-            border: none;
-            font-weight: 400;
-        }
-        .buttons button span {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-        }
-        .buttons .left {
-            transition: background-color 0.2s ease;
-            background-color: #ffa00a;
-            color: white;
-        }
-        .buttons .number {
-            transition: background-color 0.2s ease;
-            color: white;
-            background-color: #343434;
-        }
-        .buttons .func {
-            transition: background-color 0.2s ease;
-            background-color: #a5a5a5;
-            font-size: 24px;
-            color: black;
-        }
-        .buttons .left:hover {
-            background-color: #fcc78d;
-            color: white;
-            scale: 1.05;
-            box-shadow: 0 0 6px #fcc78d;
-        }
-        .buttons .number:hover {
-            background-color: #737373;
-            color: white;
-            scale: 1.05;
-            box-shadow: 0 0 6px #737373;
-        }
-        .buttons .func:hover {
-            background-color: #d9d9d9;
-            scale: 1.05;
-            box-shadow: 0 0 6px #d9d9d9;
-        }
-        .buttons .sign {
-            font-size: 36px;
-        }
-    }
-    @media screen and (min-width: 1600px) {
-        body {
-            font-family: PT Sans;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        button {
-            opacity: 0;
-            transform: scale(0);
-            transition: all 1.5s ease;
-        }
-        .buttons {
-            width: 100%;
-        }
-        .calculator {
-            opacity: 0;
-            transform: scale(0);
-            transition: all 2s ease;
-            min-width: 520px;
-            height: 770px;
-            margin: 0 auto;
-            padding: 15px;
-            border: 3px solid black;
-            border-radius: 12px;
-            background-color: black;
-        }
-        .show {
-            opacity: 1;
-            transform: scale(1);
-        }
-        #display {
-            -moz-appearance: none;
-            border: 1px solid black;
-            padding-left: 0;
-            margin-top: 40px;
-            background-color: black;
-            width: 380px;
-            height: 64px;
-            margin-left: auto;
-            font-weight: 400;
-            margin-right: auto;
-            margin-bottom: 8px;
-            font-size: 72px;
-            color: white;
-        }
-        #display::placeholder {
-            color: white;
-        }
-        .buttons button {
-            position: relative;
-            text-align: center;
-            border-radius: 50%;
-            width: 90px;
-            height: 90px;
-            font-size: 48px;
-            margin: 4px;
-            cursor: pointer;
-            border: none;
-            font-weight: 400;
-        }
-        .buttons button span {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-        }
-        .buttons .left {
-            transition: background-color 0.2s ease;
-            background-color: #ffa00a;
-            color: white;
-        }
-        .buttons .number {
-            transition: background-color 0.2s ease;
-            color: white;
-            background-color: #343434;
-        }
-        .buttons .func {
-            transition: background-color 0.2s ease;
-            background-color: #a5a5a5;
-            font-size: 40px;
-            color: black;
-        }
-        .buttons .left:hover {
-            background-color: #fcc78d;
-            color: white;
-            scale: 1.05;
-            box-shadow: 0 0 6px #fcc78d;
-        }
-        .buttons .number:hover {
-            background-color: #737373;
-            color: white;
-            scale: 1.05;
-            box-shadow: 0 0 6px #737373;
-        }
-        .buttons .func:hover {
-            background-color: #d9d9d9;
-            scale: 1.05;
-            box-shadow: 0 0 6px #d9d9d9;
-        }
-        .buttons .sign {
-            font-size: 52px;
-        }
-    }
-}
+@media screen and (min-width: 390px) {}
 
-@media screen and (orientation: portrait) {
-    * {
-        box-sizing: border-box;
-    }
+@media screen and (min-width: 768px) {
     body {
         position: relative;
         font-family: PT Sans;
@@ -489,11 +152,6 @@
         align-items: center;
         height: 100vh;
     }
-    /* span {
-        height: 100%;
-        width: 100%;
-        border-radius: 50%;
-    } */
     .calculator {
         opacity: 0;
         transform: scale(0);
@@ -503,13 +161,12 @@
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        max-width: 390px;
+        min-width: 100vw;
         height: 100vh;
         margin: 0 auto;
         padding: 12px;
         padding-bottom: 680px;
         border: 3px solid black;
-        /* border-radius: 12px; */
         background-color: black;
     }
     .buttons {
@@ -524,26 +181,29 @@
         padding-left: 0;
         margin-top: 40px;
         background-color: black;
-        max-width: 324px;
-        height: 64px;
+        max-width: 540px;
+        height: 84px;
         margin-left: auto;
         font-weight: 400;
         margin-right: auto;
         margin-bottom: 16px;
-        font-size: 68px;
+        font-size: 84px;
         color: white;
     }
     #display::placeholder {
         color: white;
     }
+    .buttons {
+        width: 692px;
+    }
     .buttons button {
         position: relative;
         text-align: center;
         border-radius: 50%;
-        width: 74px;
-        height: 74px;
-        font-size: 32px;
-        margin: 6px;
+        width: 120px;
+        height: 120px;
+        font-size: 64px;
+        margin: 10px;
         cursor: pointer;
         border: none;
         font-weight: 400;
@@ -555,8 +215,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 74px;
-        height: 74px;
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
     }
     .buttons .left {
@@ -571,7 +231,7 @@
     }
     .buttons .func {
         background-color: #a5a5a5;
-        font-size: 24px;
+        font-size: 52px;
         color: black;
         transition: background-color 0.2s ease;
     }
@@ -584,373 +244,270 @@
         opacity: 1;
         transform: scale(1);
     }
-    /* .buttons .left:active {
-        background-color: #fcc78d;
-        color: white;
-    }
-    
-    .buttons .number:active {
-        background-color: #737373;
-        color: white;
-    }
-    
-    .buttons .func:active {
-        background-color: #d9d9d9;
-    } */
     .active-orange {
         background-color: #fcc78d;
         color: white;
     }
     .buttons .sign {
+        font-size: 68px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    body {
+        background-color: white;
+        font-family: PT Sans;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    button {
+        opacity: 0;
+        transform: scale(0);
+        transition: all 1.5s ease;
+    }
+    .buttons {
+        width: 100%;
+    }
+    @keyframes spin {
+        0% {
+            transform: scale(1) rotate(0deg);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.05);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1) rotate(360deg);
+            opacity: 1;
+        }
+    }
+    .calculator {
+        opacity: 0;
+        transform: scale(0);
+        transition: all 2s ease;
+        min-width: 370px;
+        height: 620px;
+        margin: 0 auto;
+        padding: 15px;
+        border: 3px solid black;
+        border-radius: 12px;
+        background-color: black;
+        animation-name: spin;
+        animation-duration: 0.9s;
+        animation-timing-function: linear;
+        animation-delay: 2500ms;
+    }
+    .show {
+        opacity: 1;
+        transform: scale(1);
+    }
+    #display {
+        -moz-appearance: none;
+        border: 1px solid black;
+        padding-left: 0;
+        margin-top: 40px;
+        background-color: black;
+        width: 310px;
+        height: 64px;
+        margin-left: auto;
+        font-weight: 400;
+        margin-right: auto;
+        margin-bottom: 8px;
+        font-size: 72px;
+        color: white;
+    }
+    #display::placeholder {
+        color: white;
+    }
+    .buttons button {
+        position: relative;
+        text-align: center;
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        font-size: 32px;
+        margin: 4px;
+        cursor: pointer;
+        border: none;
+        font-weight: 400;
+    }
+    .buttons button span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+    }
+    .buttons .left {
+        transition: background-color 0.2s ease;
+        background-color: #ffa00a;
+        color: white;
+    }
+    .buttons .number {
+        transition: background-color 0.2s ease;
+        color: white;
+        background-color: #343434;
+    }
+    .buttons .func {
+        transition: background-color 0.2s ease;
+        background-color: #a5a5a5;
+        font-size: 24px;
+        color: black;
+    }
+    .buttons .left:hover {
+        background-color: #fcc78d;
+        color: white;
+        scale: 1.05;
+        box-shadow: 0 0 6px #fcc78d;
+    }
+    .buttons .number:hover {
+        background-color: #737373;
+        color: white;
+        scale: 1.05;
+        box-shadow: 0 0 6px #737373;
+    }
+    .buttons .func:hover {
+        background-color: #d9d9d9;
+        scale: 1.05;
+        box-shadow: 0 0 6px #d9d9d9;
+    }
+    .buttons .sign {
         font-size: 36px;
     }
-    @media screen and (min-width: 390px) {}
-    @media screen and (min-width: 768px) {
-        body {
-            position: relative;
-            font-family: PT Sans;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        /* span {
-            height: 100%;
-            width: 100%;
-            border-radius: 50%;
-        } */
-        .calculator {
-            opacity: 0;
-            transform: scale(0);
-            transition: all 1.5s ease;
-            position: fixed;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-width: 100vw;
-            height: 100vh;
-            margin: 0 auto;
-            padding: 12px;
-            padding-bottom: 680px;
-            border: 3px solid black;
-            /* border-radius: 12px; */
-            background-color: black;
-        }
-        .buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-        }
-        #display {
-            -moz-appearance: none;
-            border: 1px solid black;
-            padding-left: 0;
-            margin-top: 40px;
-            background-color: black;
-            max-width: 540px;
-            height: 84px;
-            margin-left: auto;
-            font-weight: 400;
-            margin-right: auto;
-            margin-bottom: 16px;
-            font-size: 84px;
-            color: white;
-        }
-        #display::placeholder {
-            color: white;
-        }
-        .buttons {
-            width: 692px;
-        }
-        .buttons button {
-            position: relative;
-            text-align: center;
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            font-size: 64px;
-            margin: 10px;
-            cursor: pointer;
-            border: none;
-            font-weight: 400;
-        }
-        .buttons button span {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-        }
-        .buttons .left {
-            background-color: #ffa00a;
-            color: white;
-            transition: background-color 0.2s ease;
-        }
-        .buttons .number {
-            color: white;
-            background-color: #343434;
-            transition: background-color 0.2s ease;
-        }
-        .buttons .func {
-            background-color: #a5a5a5;
-            font-size: 52px;
-            color: black;
-            transition: background-color 0.2s ease;
-        }
-        button {
-            opacity: 0;
-            transform: scale(0);
-            transition: all 1000ms ease;
-        }
-        .show {
+}
+
+@media screen and (min-width: 1600px) {
+    body {
+        font-family: PT Sans;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    button {
+        opacity: 0;
+        transform: scale(0);
+        transition: all 1.5s ease;
+    }
+    .buttons {
+        width: 100%;
+    }
+    @keyframes spin {
+        0% {
+            transform: scale(1) rotate(0deg);
             opacity: 1;
-            transform: scale(1);
         }
-        /* .buttons .left:active {
-            background-color: #fcc78d;
-            color: white;
+        50% {
+            transform: scale(1.05);
+            opacity: 0;
         }
-        
-        .buttons .number:active {
-            background-color: #737373;
-            color: white;
-        }
-        
-        .buttons .func:active {
-            background-color: #d9d9d9;
-        } */
-        .active-orange {
-            background-color: #fcc78d;
-            color: white;
-        }
-        .buttons .sign {
-            font-size: 68px;
+        100% {
+            transform: scale(1) rotate(360deg);
+            opacity: 1;
         }
     }
-    @media screen and (min-width: 1200px) {
-        body {
-            font-family: PT Sans;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        button {
-            opacity: 0;
-            transform: scale(0);
-            transition: all 1.5s ease;
-        }
-        .buttons {
-            width: 100%;
-        }
-        .calculator {
-            opacity: 0;
-            transform: scale(0);
-            transition: all 2s ease;
-            min-width: 370px;
-            height: 620px;
-            margin: 0 auto;
-            padding: 15px;
-            border: 3px solid black;
-            border-radius: 12px;
-            background-color: black;
-        }
-        .show {
-            opacity: 1;
-            transform: scale(1);
-        }
-        #display {
-            -moz-appearance: none;
-            border: 1px solid black;
-            padding-left: 0;
-            margin-top: 40px;
-            background-color: black;
-            width: 310px;
-            height: 64px;
-            margin-left: auto;
-            font-weight: 400;
-            margin-right: auto;
-            margin-bottom: 8px;
-            font-size: 72px;
-            color: white;
-        }
-        #display::placeholder {
-            color: white;
-        }
-        .buttons button {
-            position: relative;
-            text-align: center;
-            border-radius: 50%;
-            width: 70px;
-            height: 70px;
-            font-size: 32px;
-            margin: 4px;
-            cursor: pointer;
-            border: none;
-            font-weight: 400;
-        }
-        .buttons button span {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-        }
-        .buttons .left {
-            transition: background-color 0.2s ease;
-            background-color: #ffa00a;
-            color: white;
-        }
-        .buttons .number {
-            transition: background-color 0.2s ease;
-            color: white;
-            background-color: #343434;
-        }
-        .buttons .func {
-            transition: background-color 0.2s ease;
-            background-color: #a5a5a5;
-            font-size: 24px;
-            color: black;
-        }
-        .buttons .left:hover {
-            background-color: #fcc78d;
-            color: white;
-            scale: 1.05;
-            box-shadow: 0 0 6px #fcc78d;
-        }
-        .buttons .number:hover {
-            background-color: #737373;
-            color: white;
-            scale: 1.05;
-            box-shadow: 0 0 6px #737373;
-        }
-        .buttons .func:hover {
-            background-color: #d9d9d9;
-            scale: 1.05;
-            box-shadow: 0 0 6px #d9d9d9;
-        }
-        .buttons .sign {
-            font-size: 36px;
-        }
+    .calculator {
+        opacity: 0;
+        transform: scale(0);
+        transition: all 2s ease;
+        min-width: 520px;
+        height: 770px;
+        margin: 0 auto;
+        padding: 15px;
+        border: 3px solid black;
+        border-radius: 12px;
+        background-color: black;
+        animation-name: spin;
+        animation-duration: 0.9s;
+        animation-timing-function: linear;
+        animation-delay: 2500ms;
     }
-    @media screen and (min-width: 1600px) {
-        body {
-            font-family: PT Sans;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        button {
-            opacity: 0;
-            transform: scale(0);
-            transition: all 1.5s ease;
-        }
-        .buttons {
-            width: 100%;
-        }
-        .calculator {
-            opacity: 0;
-            transform: scale(0);
-            transition: all 2s ease;
-            min-width: 520px;
-            height: 770px;
-            margin: 0 auto;
-            padding: 15px;
-            border: 3px solid black;
-            border-radius: 12px;
-            background-color: black;
-        }
-        .show {
-            opacity: 1;
-            transform: scale(1);
-        }
-        #display {
-            -moz-appearance: none;
-            border: 1px solid black;
-            padding-left: 0;
-            margin-top: 40px;
-            background-color: black;
-            width: 380px;
-            height: 64px;
-            margin-left: auto;
-            font-weight: 400;
-            margin-right: auto;
-            margin-bottom: 8px;
-            font-size: 72px;
-            color: white;
-        }
-        #display::placeholder {
-            color: white;
-        }
-        .buttons button {
-            position: relative;
-            text-align: center;
-            border-radius: 50%;
-            width: 90px;
-            height: 90px;
-            font-size: 48px;
-            margin: 4px;
-            cursor: pointer;
-            border: none;
-            font-weight: 400;
-        }
-        .buttons button span {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-        }
-        .buttons .left {
-            transition: background-color 0.2s ease;
-            background-color: #ffa00a;
-            color: white;
-        }
-        .buttons .number {
-            transition: background-color 0.2s ease;
-            color: white;
-            background-color: #343434;
-        }
-        .buttons .func {
-            transition: background-color 0.2s ease;
-            background-color: #a5a5a5;
-            font-size: 40px;
-            color: black;
-        }
-        .buttons .left:hover {
-            background-color: #fcc78d;
-            color: white;
-            scale: 1.05;
-            box-shadow: 0 0 6px #fcc78d;
-        }
-        .buttons .number:hover {
-            background-color: #737373;
-            color: white;
-            scale: 1.05;
-            box-shadow: 0 0 6px #737373;
-        }
-        .buttons .func:hover {
-            background-color: #d9d9d9;
-            scale: 1.05;
-            box-shadow: 0 0 6px #d9d9d9;
-        }
-        .buttons .sign {
-            font-size: 52px;
-        }
+    .show {
+        opacity: 1;
+        transform: scale(1);
+    }
+    #display {
+        -moz-appearance: none;
+        border: 1px solid black;
+        padding-left: 0;
+        margin-top: 40px;
+        background-color: black;
+        width: 380px;
+        height: 64px;
+        margin-left: auto;
+        font-weight: 400;
+        margin-right: auto;
+        margin-bottom: 8px;
+        font-size: 72px;
+        color: white;
+    }
+    #display::placeholder {
+        color: white;
+    }
+    .buttons button {
+        position: relative;
+        text-align: center;
+        border-radius: 50%;
+        width: 90px;
+        height: 90px;
+        font-size: 48px;
+        margin: 4px;
+        cursor: pointer;
+        border: none;
+        font-weight: 400;
+    }
+    .buttons button span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+    }
+    .buttons .left {
+        transition: background-color 0.2s ease;
+        background-color: #ffa00a;
+        color: white;
+    }
+    .buttons .number {
+        transition: background-color 0.2s ease;
+        color: white;
+        background-color: #343434;
+    }
+    .buttons .func {
+        transition: background-color 0.2s ease;
+        background-color: #a5a5a5;
+        font-size: 40px;
+        color: black;
+    }
+    .buttons .left:hover {
+        background-color: #fcc78d;
+        color: white;
+        scale: 1.05;
+        box-shadow: 0 0 6px #fcc78d;
+    }
+    .buttons .number:hover {
+        background-color: #737373;
+        color: white;
+        scale: 1.05;
+        box-shadow: 0 0 6px #737373;
+    }
+    .buttons .func:hover {
+        background-color: #d9d9d9;
+        scale: 1.05;
+        box-shadow: 0 0 6px #d9d9d9;
+    }
+    .buttons .sign {
+        font-size: 52px;
     }
 }

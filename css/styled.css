@@ -171,7 +171,7 @@ button {
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        max-width: 100%;
+        min-width: 100vw;
         height: 100vh;
         margin: 0 auto;
         padding: 12px;
@@ -213,7 +213,7 @@ button {
         border-radius: 50%;
         width: 120px;
         height: 120px;
-        font-size: 32px;
+        font-size: 64px;
         margin: 10px;
         cursor: pointer;
         border: none;
@@ -242,7 +242,7 @@ button {
     }
     .buttons .func {
         background-color: #a5a5a5;
-        font-size: 24px;
+        font-size: 52px;
         color: black;
         transition: background-color 0.2s ease;
     }
@@ -273,7 +273,7 @@ button {
         color: white;
     }
     .buttons .sign {
-        font-size: 36px;
+        font-size: 68px;
     }
 }
 
@@ -290,11 +290,14 @@ button {
         transform: scale(0);
         transition: all 1.5s ease;
     }
+    .buttons {
+        width: 100%;
+    }
     .calculator {
         opacity: 0;
         transform: scale(0);
         transition: all 2s ease;
-        width: 370px;
+        min-width: 370px;
         height: 620px;
         margin: 0 auto;
         padding: 15px;
@@ -312,9 +315,9 @@ button {
         padding-left: 0;
         margin-top: 40px;
         background-color: black;
-        width: 320px;
+        width: 310px;
         height: 64px;
-        margin-left: 12px;
+        margin-left: auto;
         font-weight: 400;
         margin-right: auto;
         margin-bottom: 8px;
@@ -382,5 +385,116 @@ button {
     }
     .buttons .sign {
         font-size: 36px;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    body {
+        font-family: PT Sans;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    button {
+        opacity: 0;
+        transform: scale(0);
+        transition: all 1.5s ease;
+    }
+    .buttons {
+        width: 100%;
+    }
+    .calculator {
+        opacity: 0;
+        transform: scale(0);
+        transition: all 2s ease;
+        min-width: 520px;
+        height: 770px;
+        margin: 0 auto;
+        padding: 15px;
+        border: 3px solid black;
+        border-radius: 12px;
+        background-color: black;
+    }
+    .show {
+        opacity: 1;
+        transform: scale(1);
+    }
+    #display {
+        -moz-appearance: none;
+        border: 1px solid black;
+        padding-left: 0;
+        margin-top: 40px;
+        background-color: black;
+        width: 380px;
+        height: 64px;
+        margin-left: auto;
+        font-weight: 400;
+        margin-right: auto;
+        margin-bottom: 8px;
+        font-size: 72px;
+        color: white;
+    }
+    #display::placeholder {
+        color: white;
+    }
+    .buttons button {
+        position: relative;
+        text-align: center;
+        border-radius: 50%;
+        width: 90px;
+        height: 90px;
+        font-size: 48px;
+        margin: 4px;
+        cursor: pointer;
+        border: none;
+        font-weight: 400;
+    }
+    .buttons button span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+    }
+    .buttons .left {
+        transition: background-color 0.2s ease;
+        background-color: #ffa00a;
+        color: white;
+    }
+    .buttons .number {
+        transition: background-color 0.2s ease;
+        color: white;
+        background-color: #343434;
+    }
+    .buttons .func {
+        transition: background-color 0.2s ease;
+        background-color: #a5a5a5;
+        font-size: 40px;
+        color: black;
+    }
+    .buttons .left:hover {
+        background-color: #fcc78d;
+        color: white;
+        scale: 1.05;
+        box-shadow: 0 0 6px #fcc78d;
+    }
+    .buttons .number:hover {
+        background-color: #737373;
+        color: white;
+        scale: 1.05;
+        box-shadow: 0 0 6px #737373;
+    }
+    .buttons .func:hover {
+        background-color: #d9d9d9;
+        scale: 1.05;
+        box-shadow: 0 0 6px #d9d9d9;
+    }
+    .buttons .sign {
+        font-size: 52px;
     }
 }

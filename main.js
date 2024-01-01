@@ -12,7 +12,14 @@ const sqrt = document.querySelector('.sqrt');
 const square = document.querySelector('.square');
 const squareN = document.querySelector('.squareN');
 const numBtns = document.querySelectorAll('.num');
-const funcBtns = document.querySelectorAll('.func')
+const funcBtns = document.querySelectorAll('.func');
+
+window.navigator = window.navigator || {};
+if (navigator.vibrate === undefined) {
+    alert("Вибрация не поддерживается");
+};
+
+console.log(window.navigator)
 
 
 

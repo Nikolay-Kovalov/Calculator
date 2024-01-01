@@ -13,13 +13,33 @@ const square = document.querySelector('.square');
 const squareN = document.querySelector('.squareN');
 const numBtns = document.querySelectorAll('.num');
 const funcBtns = document.querySelectorAll('.func');
+const allBtns = document.querySelectorAll('button');
 
-window.navigator = window.navigator || {};
-if (navigator.vibrate === undefined) {
-    alert("Вибрация не поддерживается");
-};
 
-console.log(window.navigator)
+
+
+document.addEventListener('DOMContentLoaded', onLoad);
+
+function onLoad() {
+    calculator.classList.add('show');
+}
+
+
+let i = 1;
+let num = 1;
+const buttons = [...allBtns];
+
+const id = setInterval(() => {
+    for (i; i <= num; i += 1) {
+        buttons[i - 1].classList.add('show');
+    }
+    num += 1;
+    if (num === 25) {
+        clearInterval(id)
+    }
+}, 100)
+
+
 
 
 

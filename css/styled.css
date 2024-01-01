@@ -18,7 +18,16 @@ body {
     border-radius: 50%;
 } */
 
+button {
+    opacity: 0;
+    transform: scale(0);
+    transition: all 1.5s ease;
+}
+
 .calculator {
+    opacity: 0;
+    transform: scale(0);
+    transition: all 1.5s ease;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -32,6 +41,11 @@ body {
     border: 3px solid black;
     /* border-radius: 12px; */
     background-color: black;
+}
+
+.show {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .buttons {
@@ -141,7 +155,15 @@ body {
         align-items: center;
         height: 100vh;
     }
+    button {
+        opacity: 0;
+        transform: scale(0);
+        transition: all 1.5s ease;
+    }
     .calculator {
+        opacity: 0;
+        transform: scale(0);
+        transition: all 1.5s ease;
         width: 370px;
         height: 620px;
         margin: 0 auto;
@@ -149,6 +171,10 @@ body {
         border: 3px solid black;
         border-radius: 12px;
         background-color: black;
+    }
+    .show {
+        opacity: 1;
+        transform: scale(1);
     }
     #display {
         -moz-appearance: none;
@@ -210,13 +236,19 @@ body {
     .buttons .left:hover {
         background-color: #fcc78d;
         color: white;
+        scale: 1.05;
+        box-shadow: 0 0 6px #fcc78d;
     }
     .buttons .number:hover {
         background-color: #737373;
         color: white;
+        scale: 1.05;
+        box-shadow: 0 0 6px #737373;
     }
     .buttons .func:hover {
         background-color: #d9d9d9;
+        scale: 1.05;
+        box-shadow: 0 0 6px #d9d9d9;
     }
     .buttons .sign {
         font-size: 36px;

@@ -18,12 +18,6 @@ body {
     border-radius: 50%;
 } */
 
-button {
-    opacity: 0;
-    transform: scale(0);
-    transition: all 1.5s ease;
-}
-
 .calculator {
     opacity: 0;
     transform: scale(0);
@@ -41,11 +35,6 @@ button {
     border: 3px solid black;
     /* border-radius: 12px; */
     background-color: black;
-}
-
-.show {
-    opacity: 1;
-    transform: scale(1);
 }
 
 .buttons {
@@ -119,6 +108,17 @@ button {
     transition: background-color 0.2s ease;
 }
 
+button {
+    opacity: 0;
+    transform: scale(0);
+    transition: all 1000ms ease;
+}
+
+.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
 
 /* .buttons .left:active {
     background-color: #fcc78d;
@@ -145,7 +145,137 @@ button {
 
 @media screen and (min-width: 390px) {}
 
-@media screen and (min-width: 768px) {}
+@media screen and (min-width: 768px) {
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        position: relative;
+        font-family: PT Sans;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    /* span {
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+    } */
+    .calculator {
+        opacity: 0;
+        transform: scale(0);
+        transition: all 1.5s ease;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        max-width: 100%;
+        height: 100vh;
+        margin: 0 auto;
+        padding: 12px;
+        padding-bottom: 680px;
+        border: 3px solid black;
+        /* border-radius: 12px; */
+        background-color: black;
+    }
+    .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    #display {
+        -moz-appearance: none;
+        border: 1px solid black;
+        padding-left: 0;
+        margin-top: 40px;
+        background-color: black;
+        max-width: 540px;
+        height: 84px;
+        margin-left: auto;
+        font-weight: 400;
+        margin-right: auto;
+        margin-bottom: 16px;
+        font-size: 84px;
+        color: white;
+    }
+    #display::placeholder {
+        color: white;
+    }
+    .buttons {
+        width: 692px;
+    }
+    .buttons button {
+        position: relative;
+        text-align: center;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        font-size: 32px;
+        margin: 10px;
+        cursor: pointer;
+        border: none;
+        font-weight: 400;
+    }
+    .buttons button span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+    }
+    .buttons .left {
+        background-color: #ffa00a;
+        color: white;
+        transition: background-color 0.2s ease;
+    }
+    .buttons .number {
+        color: white;
+        background-color: #343434;
+        transition: background-color 0.2s ease;
+    }
+    .buttons .func {
+        background-color: #a5a5a5;
+        font-size: 24px;
+        color: black;
+        transition: background-color 0.2s ease;
+    }
+    button {
+        opacity: 0;
+        transform: scale(0);
+        transition: all 1000ms ease;
+    }
+    .show {
+        opacity: 1;
+        transform: scale(1);
+    }
+    /* .buttons .left:active {
+        background-color: #fcc78d;
+        color: white;
+    }
+    
+    .buttons .number:active {
+        background-color: #737373;
+        color: white;
+    }
+    
+    .buttons .func:active {
+        background-color: #d9d9d9;
+    } */
+    .active-orange {
+        background-color: #fcc78d;
+        color: white;
+    }
+    .buttons .sign {
+        font-size: 36px;
+    }
+}
 
 @media screen and (min-width: 1200px) {
     body {
@@ -163,7 +293,7 @@ button {
     .calculator {
         opacity: 0;
         transform: scale(0);
-        transition: all 1.5s ease;
+        transition: all 2s ease;
         width: 370px;
         height: 620px;
         margin: 0 auto;

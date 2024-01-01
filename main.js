@@ -22,22 +22,23 @@ document.addEventListener('DOMContentLoaded', onLoad);
 
 function onLoad() {
     calculator.classList.add('show');
+    let i = 1;
+    let num = 1;
+    const buttons = [...allBtns];
+
+    const id = setInterval(() => {
+        for (i; i <= num; i += 1) {
+            buttons[i - 1].classList.add('show');
+        }
+        num += 1;
+        if (num === 25) {
+            clearInterval(id)
+        }
+    }, 100)
 }
 
 
-let i = 1;
-let num = 1;
-const buttons = [...allBtns];
 
-const id = setInterval(() => {
-    for (i; i <= num; i += 1) {
-        buttons[i - 1].classList.add('show');
-    }
-    num += 1;
-    if (num === 25) {
-        clearInterval(id)
-    }
-}, 100)
 
 
 

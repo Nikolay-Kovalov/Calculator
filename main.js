@@ -17,7 +17,6 @@ const allBtns = document.querySelectorAll('button');
 
 
 
-
 document.addEventListener('DOMContentLoaded', onLoad);
 
 function onLoad() {
@@ -36,13 +35,6 @@ function onLoad() {
         }
     }, 100)
 }
-
-
-
-
-
-
-
 
 let state = {};
 
@@ -96,6 +88,7 @@ function removeActiveStateOrange(evt) {
 
 
 function appendToDisplay(evt) {
+    console.log(evt.currentTarget.dataset.value)
 
     if (evt.target.classList.contains('num')) {
 
@@ -130,6 +123,16 @@ function appendToDisplay(evt) {
                 state[`current${countActions}`] += evt.target.textContent;
                 display.value = state[`current${countActions}`];
 
+            } else if (Object.values(state)[Object.values(state).length - 1] === '**') {
+
+                countActions += 1;
+
+                if (!state[`current${countActions}`]) {
+                    state[`current${countActions}`] = "";
+                }
+                state[`current${countActions}`] += evt.target.textContent;
+                display.value = state[`current${countActions}`];
+
             } else if (Object.values(state)[Object.values(state).length - 1] === '*') {
                 countActions += 1;
                 console.log(evt.target.textContent)
@@ -148,6 +151,10 @@ function appendToDisplay(evt) {
         } else if (evt.target.classList.contains('op')) {
             countActions += 1;
             state[`current${countActions}`] = evt.target.textContent;
+        } else if (evt.currentTarget.classList.contains('squareN')) {
+            console.log(evt.currentTarget.dataset.value)
+            countActions += 1;
+            state[`current${countActions}`] = evt.currentTarget.dataset.value;
         }
 
     } else {
@@ -160,6 +167,10 @@ function appendToDisplay(evt) {
             countActions += 1;
             state[`current${countActions}`] = evt.target.textContent;
 
+        } else if (evt.currentTarget.classList.contains('squareN')) {
+            console.log(evt.currentTarget.dataset.value)
+            countActions += 1;
+            state[`current${countActions}`] = evt.currentTarget.dataset.value;
         }
     }
     console.log(state)
@@ -192,27 +203,24 @@ tan.addEventListener('click', calculateTan);
 cot.addEventListener('click', calculateCot);
 sqrt.addEventListener('click', calculateSqrt);
 square.addEventListener('click', calculateSquareRoot);
-squareN.addEventListener('click', calculateNRoot)
+squareN.addEventListener('click', appendToDisplay)
 
-// async function nRoot() {
-//     return await Object.values(state)[Object.values(state).length - 1]
+
+// function calculateNRoot() {
+//     display.value = state[`current${countActions}`];
+//     countActions += 1;
+//     const id = setTimeout(() => {
+//         const result = eval(Object.values(state)[Object.values(state).length - 2]) ** Object.values(state)[Object.values(state).length - 1]
+//         console.log(Object.values(state)[Object.values(state).length - 1])
+
+//         display.value = Number.isInteger(result) ? result : result.toFixed(2)
+//     }, 5000)
+//     console.log(state)
+
 // }
 
-function calculateNRoot() {
-    display.value = state[`current${countActions}`];
-    countActions += 1;
-    const id = setTimeout(() => {
-        const result = eval(Object.values(state)[Object.values(state).length - 2]) ** Object.values(state)[Object.values(state).length - 1]
-        console.log(Object.values(state)[Object.values(state).length - 1])
-
-        display.value = Number.isInteger(result) ? result : result.toFixed(2)
-    }, 5000)
-    console.log(state)
-
-}
 
 function calculateCos() {
-    // let result = Math.cos(eval(state[`current${countActions}`]))
     let result = Math.cos(eval(display.value))
     display.value = Number.isInteger(result) ? result : result.toFixed(2);
     state[`current${countActions}`] = display.value
@@ -246,4 +254,5 @@ function calculateSquareRoot() {
     let result = eval(display.value) ** 2;
     display.value = Number.isInteger(result) ? result : result.toFixed(2);
     state[`current${countActions}`] = display.value
+
 }
